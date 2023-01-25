@@ -1,14 +1,16 @@
 
 import {AddMovie} from "./components/AddMovieForm"
 import {MovieList} from "./components/MovieList";
+import { useState } from "react";
 
 function App() {
-  return (
-   <div>
-    <AddMovie/>
-    <MovieList/>
+  const [movies, setMovies] = useState([]);
 
-   </div>
+  return (
+    <div>
+      <AddMovie setMovies={setMovies} /> {/** set the movies state */}
+      <MovieList movies={movies} /> {/** using the movies state */}
+    </div>
   );
 }
 
